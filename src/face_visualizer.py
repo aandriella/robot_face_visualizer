@@ -11,7 +11,10 @@ def xdisplay_callback(data):
   #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
   try:
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
-    cv2.imshow('image', cv_image)
+    #cv2.imshow('image', cv_image)
+    cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
+    cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+    cv2.imshow("window", cv_image)
     cv2.waitKey(1)
   except CvBridgeError as e:
     print(e)
