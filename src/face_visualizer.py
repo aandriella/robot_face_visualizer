@@ -13,7 +13,7 @@ def xdisplay_callback(data):
     cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
     #cv2.imshow('image', cv_image)
     cv2.namedWindow("window", cv2.WND_PROP_FULLSCREEN)
-    cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+    #cv2.setWindowProperty("window", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     cv2.imshow("window", cv_image)
     cv2.waitKey(1)
   except CvBridgeError as e:
@@ -23,7 +23,7 @@ def xdisplay_callback(data):
 
 def face_listener():
   rospy.init_node('listener', anonymous=True)
-  rospy.Subscriber("/robot/xdisplay", Image, xdisplay_callback)
+  rospy.Subscriber("/robot/expression_diplay", Image, xdisplay_callback)
   rospy.spin()
 
 
