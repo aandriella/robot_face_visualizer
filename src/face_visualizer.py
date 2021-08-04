@@ -1,3 +1,7 @@
+"""
+@Author: Antonio Andriella
+This script displays the different facial expression in the screen.
+"""
 #!/usr/bin/env python
 
 import rospy
@@ -7,6 +11,7 @@ from std_msgs.msg import String
 import numpy as np
 from cv_bridge import CvBridge, CvBridgeError
 bridge = CvBridge()
+
 def xdisplay_callback(data):
   #rospy.loginfo(rospy.get_caller_id() + "I heard %s", data.data)
   try:
@@ -20,14 +25,10 @@ def xdisplay_callback(data):
     print(e)
   #cv2.imwrite('/home/aandriella/pal/cognitive_game_ws/src/face_listener/color_img.jpg', cv_image)
 
-
 def face_listener():
   rospy.init_node('listener', anonymous=True)
   rospy.Subscriber("/robot/expression_diplay", Image, xdisplay_callback)
   rospy.spin()
-
-
-
 
 if __name__ == "__main__":
   face_listener()
