@@ -9,7 +9,7 @@
 
 
 
-## USAGE ###
+### USAGE ###
 
 First you need to run the ros node which builds the robot facial expressions (repo [robot_face_expression](https://github.com/aandriella/robot_face_expression)):
 
